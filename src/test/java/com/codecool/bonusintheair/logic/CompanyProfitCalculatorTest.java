@@ -42,4 +42,21 @@ class CompanyProfitCalculatorTest {
         assertEquals(3000, profit.salaries());
         assertEquals(-3000, profit.remaining());
     }
+    @Test
+    void brokersWithProfitBelowBonusLimit() {
+        // Arrange
+        List<Broker> brokers = List.of(
+                new Broker("John Doe", 1200, 2400),
+                new Broker("Jane Thompson", 1000, 3500),
+                new Broker("Jack Stephan", 800, 1400)
+        );
+
+        // Act
+        CompanyProfit profit = calculator.calculate(brokers);
+
+        // Assert
+        assertEquals(7300, profit.total());
+        assertEquals(3000, profit.salaries());
+        assertEquals(4300, profit.remaining());
+    }
 }

@@ -36,7 +36,6 @@ public class CompanyProfitCalculator {
             i--;
         }
         r = t - s;
-        System.out.println(i);
         return new CompanyProfit(t, s, r);
     }
 }
