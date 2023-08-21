@@ -44,6 +44,20 @@ class CompanyProfitCalculatorTest {
     }
 
     @Test
+    void noBrokers() {
+        // Arrange
+        List<Broker> brokers = Collections.emptyList();
+
+        // Act
+        CompanyProfit profit = calculator.calculate(brokers);
+
+        // Assert
+        assertEquals(0, profit.total());
+        assertEquals(0, profit.salaries());
+        assertEquals(0, profit.remaining());
+    }
+
+    @Test
     void brokersWithProfitBelowBonusLimit() {
         // Arrange
         List<Broker> brokers = List.of(
@@ -63,6 +77,40 @@ class CompanyProfitCalculatorTest {
 
     @Test
     void brokersWithProfitAboveBonusLimit() {
+        // Arrange
+        List<Broker> brokers = List.of(
+                new Broker("John Doe", 1200, 32000),
+                new Broker("Jane Thompson", 1000, 45000),
+                new Broker("Jack Stephan", 800, 28000)
+        );
+
+        // Act
+        CompanyProfit profit = calculator.calculate(brokers);
+
+        // Assert
+        assertEquals(105000, profit.total());
+        assertEquals(34500, profit.salaries());
+        assertEquals(70500, profit.remaining());
+    }
+
+    @Test
+    void singleBroker() {
+        // Arrange
+        List<Broker> brokers = List.of(
+                new Broker("Johnny Deep", 1200, 6000)
+        );
+
+        // Act
+        CompanyProfit profit = calculator.calculate(brokers);
+
+        // Assert
+        assertEquals(6000, profit.total());
+        assertEquals(1800, profit.salaries());
+        assertEquals(4200, profit.remaining());
+    }
+
+    @Test
+    void allBrokersWithMaximumBonus() {
         // Arrange
         List<Broker> brokers = List.of(
                 new Broker("John Doe", 1200, 5500),
