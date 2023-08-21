@@ -75,7 +75,7 @@ class CompanyProfitCalculatorTest {
 
         // Assert
         assertEquals(25000, profit.total());
-        assertEquals(5050, profit.salaries());
-        assertEquals(19950, profit.remaining());
+        assertEquals(6550, profit.salaries());
+        assertEquals(18450, profit.remaining());
     }
 }

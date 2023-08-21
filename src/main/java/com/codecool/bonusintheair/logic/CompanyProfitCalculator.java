@@ -28,7 +28,6 @@ public class CompanyProfitCalculator {
                 BonusRule bo = bis.get(bis.size() - j);
                 if (b.profit() >= bo.minimum()) {
                     s2 = bo.multiplier();
-                    j = 1;
                 }
                 j--;
             }
