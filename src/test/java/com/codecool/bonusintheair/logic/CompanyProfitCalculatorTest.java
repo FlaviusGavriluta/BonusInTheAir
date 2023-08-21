@@ -17,25 +17,29 @@ class CompanyProfitCalculatorTest {
     @BeforeEach
     void setup() {
         calculator = new CompanyProfitCalculator(List.of(
-                new BonusRule(0, 0.1),
-                new BonusRule(100, 0.15),
-                new BonusRule(500, 0.2),
-                new BonusRule(1000, 0.25),
-                new BonusRule(5000, 0.3)
+                new BonusRule(5000, 0.1),
+                new BonusRule(10000, 0.15),
+                new BonusRule(15000, 0.2),
+                new BonusRule(20000, 0.25),
+                new BonusRule(25000, 0.3)
         ));
     }
 
     @Test
     void noBrokersAchievedProfit() {
         // Arrange
-        List<Broker> brokers = Collections.emptyList();
+        List<Broker> brokers = List.of(
+                new Broker("John Doe", 1200, 0),
+                new Broker("Jane Thompson", 1000, 0),
+                new Broker("Jack Stephan", 800, 0)
+        );
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
 
         // Assert
         assertEquals(0, profit.total());
-        assertEquals(0, profit.salaries());
-        assertEquals(0, profit.remaining());
+        assertEquals(3000, profit.salaries());
+        assertEquals(-3000, profit.remaining());
     }
 }
