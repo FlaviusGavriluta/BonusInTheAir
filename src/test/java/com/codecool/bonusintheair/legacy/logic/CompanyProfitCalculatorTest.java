@@ -1,8 +1,8 @@
-package com.codecool.bonusintheair.logic;
+package com.codecool.bonusintheair.legacy.logic;
 
-import com.codecool.bonusintheair.data.BonusRule;
-import com.codecool.bonusintheair.data.Broker;
-import com.codecool.bonusintheair.data.CompanyProfit;
+import com.codecool.bonusintheair.legacy.data.BonusRule;
+import com.codecool.bonusintheair.legacy.data.Broker;
+import com.codecool.bonusintheair.legacy.data.CompanyProfit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
