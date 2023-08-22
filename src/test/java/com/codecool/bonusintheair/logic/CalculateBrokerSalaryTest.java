@@ -27,8 +27,11 @@ class CalculateBrokerSalaryTest {
         CalculateBrokerSalary calculator = new CalculateBrokerSalary(bonusCalculatorMock);
         Broker broker = new Broker("John Doe", 1200, 0);
 
+        // Act
+        double salary = calculator.calculateSalary(broker);
+
         // Assert
-        assertEquals(1200, calculator.calculateSalary(broker));
+        assertEquals(1200, salary);
     }
 
     @Test
@@ -38,12 +41,15 @@ class CalculateBrokerSalaryTest {
         CalculateBrokerSalary calculator = new CalculateBrokerSalary(bonusCalculatorMock);
         Broker broker = new Broker("John Doe", 1200, 45000);
 
+        // Act
+        double salary = calculator.calculateSalary(broker);
+
         // Assert
-        assertEquals(2200, calculator.calculateSalary(broker));
+        assertEquals(2200, salary);
     }
 
     @Test
-    void calculateSalary() {
+    void calculateSalaryWithoutMockito() {
         // Arrange
         Broker broker = new Broker("John Snow", 2500, 15000);
         List<BonusRule> bonusRules = List.of(new BonusRule(10000, .1));
@@ -55,6 +61,22 @@ class CalculateBrokerSalaryTest {
 
         // Assert
         assertEquals(4000, brokerSalary);
+    }
 
+    @Test
+    void calculateSalaryWithoutBonusAndMockito() {
+        // Arrange
+        Broker broker = new Broker("Adam Stephanos", 3500, 9900);
+        List<BonusRule> bonusRules = List.of(
+                new BonusRule(10000, .1),
+                new BonusRule(20000, .2));
+        BonusCalculator bonusCalculator = new BonusCalculatorImpl(bonusRules);
+        CalculateBrokerSalary calculator = new CalculateBrokerSalary(bonusCalculator);
+
+        // Act
+        double salary = calculator.calculateSalary(broker);
+
+        // Assert
+        assertEquals(3500, salary);
     }
 }

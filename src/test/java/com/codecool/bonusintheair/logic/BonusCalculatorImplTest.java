@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BonusCalculatorImplTest {
     private BonusCalculatorImpl bonusCalculator;
@@ -25,19 +25,49 @@ class BonusCalculatorImplTest {
 
     @Test
     void noBonus() {
-        Broker borker = new Broker("John Doe", 1200, 4500);
-        assertEquals(0, bonusCalculator.calculateBonus(borker));
+        // Arrange
+        Broker broker = new Broker("John Doe", 1200, 4500);
+
+        // Act
+        double bonus = bonusCalculator.calculateBonus(broker);
+
+        // Assert
+        assertEquals(0, bonusCalculator.calculateBonus(broker));
     }
 
     @Test
-    void lowBonus(){
-        Broker borker = new Broker("John Doe", 1200, 5500);
-        assertEquals(550, bonusCalculator.calculateBonus(borker));
+    void lowBonus() {
+        // Arrange
+        Broker broker = new Broker("John Doe", 1200, 5500);
+
+        // Act
+        double bonus = bonusCalculator.calculateBonus(broker);
+
+        // Assert
+        assertEquals(550, bonusCalculator.calculateBonus(broker));
     }
 
     @Test
-    void highBonus(){
-        Broker borker = new Broker("John Doe", 1200, 30000);
-        assertEquals(9000, bonusCalculator.calculateBonus(borker));
+    void highBonus() {
+        // Arrange
+        Broker broker = new Broker("John Doe", 1200, 30000);
+
+        // Act
+        double bonus = bonusCalculator.calculateBonus(broker);
+
+        // Assert
+        assertEquals(9000, bonus);
+    }
+
+    @Test
+    void limitBonus() {
+        // Arrange
+        Broker broker = new Broker("Bill Adam", 2500, 5000);
+
+        // Act
+        double bonus = bonusCalculator.calculateBonus(broker);
+
+        // Assert
+        assertEquals(500, bonus);
     }
 }

@@ -22,8 +22,7 @@ class CompanyProfitCalculatorTest {
                 new BonusRule(10000, 0.15),
                 new BonusRule(15000, 0.2),
                 new BonusRule(20000, 0.25),
-                new BonusRule(25000, 0.3)
-        ));
+                new BonusRule(25000, 0.3)));
     }
 
     @Test
@@ -32,8 +31,7 @@ class CompanyProfitCalculatorTest {
         List<Broker> brokers = List.of(
                 new Broker("John Doe", 1200, 0),
                 new Broker("Jane Thompson", 1000, 0),
-                new Broker("Jack Stephan", 800, 0)
-        );
+                new Broker("Jack Stephan", 800, 0));
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
@@ -64,8 +62,7 @@ class CompanyProfitCalculatorTest {
         List<Broker> brokers = List.of(
                 new Broker("John Doe", 1200, 2400),
                 new Broker("Jane Thompson", 1000, 3500),
-                new Broker("Jack Stephan", 800, 1400)
-        );
+                new Broker("Jack Stephan", 800, 1400));
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
@@ -82,8 +79,7 @@ class CompanyProfitCalculatorTest {
         List<Broker> brokers = List.of(
                 new Broker("John Doe", 1200, 32000),
                 new Broker("Jane Thompson", 1000, 45000),
-                new Broker("Jack Stephan", 800, 28000)
-        );
+                new Broker("Jack Stephan", 800, 28000));
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
@@ -98,8 +94,7 @@ class CompanyProfitCalculatorTest {
     void singleBroker() {
         // Arrange
         List<Broker> brokers = List.of(
-                new Broker("Johnny Deep", 1200, 6000)
-        );
+                new Broker("Johnny Deep", 1200, 6000));
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
@@ -114,17 +109,16 @@ class CompanyProfitCalculatorTest {
     void allBrokersWithMaximumBonus() {
         // Arrange
         List<Broker> brokers = List.of(
-                new Broker("John Doe", 1200, 5500),
-                new Broker("Jane Thompson", 1000, 15000),
-                new Broker("Jack Stephan", 800, 4500)
-        );
+                new Broker("John Doe", 1200, 55000),
+                new Broker("Jane Thompson", 1000, 150000),
+                new Broker("Jack Stephan", 800, 45000));
 
         // Act
         CompanyProfit profit = calculator.calculate(brokers);
 
         // Assert
-        assertEquals(25000, profit.total());
-        assertEquals(6550, profit.salaries());
-        assertEquals(18450, profit.remaining());
+        assertEquals(250000, profit.total());
+        assertEquals(78000, profit.salaries());
+        assertEquals(172000, profit.remaining());
     }
 }
