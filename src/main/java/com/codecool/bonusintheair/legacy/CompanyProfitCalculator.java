@@ -1,8 +1,8 @@
-package com.codecool.bonusintheair.legacy.logic;
+package com.codecool.bonusintheair.legacy;
 
-import com.codecool.bonusintheair.legacy.data.BonusRule;
-import com.codecool.bonusintheair.legacy.data.Broker;
-import com.codecool.bonusintheair.legacy.data.CompanyProfit;
+import com.codecool.bonusintheair.data.BonusRule;
+import com.codecool.bonusintheair.data.Broker;
+import com.codecool.bonusintheair.data.CompanyProfit;
 
 import java.util.List;
 

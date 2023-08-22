@@ -1,4 +1,4 @@
-package com.codecool.bonusintheair.legacy.data;
+package com.codecool.bonusintheair.data;
 
 public record CompanyProfit(double total, double salaries, double remaining) {
 }
