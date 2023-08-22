@@ -7,25 +7,25 @@ import com.codecool.bonusintheair.data.CompanyProfit;
 import java.util.List;
 
 public class CompanyProfitCalculator {
-    private final List<BonusRule> bis;
+    private final List<BonusRule> bonusRules;
 
-    public CompanyProfitCalculator(List<BonusRule> bis) {
-        this.bis = bis;
+    public CompanyProfitCalculator(List<BonusRule> bonusRules) {
+        this.bonusRules = bonusRules;
     }
 
-    public CompanyProfit calculate(List<Broker> brs) {
+    public CompanyProfit calculate(List<Broker> brokers) {
         int j = 0;
-        int i = brs.size();
+        int i = brokers.size();
         double totalProfit = 0;
-        double baseSalaries = 0;
+        double baseSalaries = 0;g
         double remaningProfit = 0;
         while (i > 0) {
-            Broker b = brs.get(brs.size() - i);
+            Broker b = brokers.get(brokers.size() - i);
             totalProfit += b.profit();
             double multiplier = 0;
-            j = bis.size();
+            j = bonusRules.size();
             while (j > 0) {
-                BonusRule bo = bis.get(bis.size() - j);
+                BonusRule bo = bonusRules.get(bonusRules.size() - j);
                 if (b.profit() >= bo.minimum()) {
                     multiplier = bo.multiplier();
                 }
