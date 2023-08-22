@@ -1,4 +1,4 @@
-package com.codecool.bonusintheair.legacy;
+package com.codecool.bonusintheair.logic.legacy;
 
 import com.codecool.bonusintheair.data.BonusRule;
 import com.codecool.bonusintheair.data.Broker;
