@@ -5,7 +5,7 @@ import com.codecool.bonusintheair.data.Broker;
 
 import java.util.List;
 
-public class BonusCalculatorImpl {
+public class BonusCalculatorImpl implements BonusCalculator {
     private final List<BonusRule> bonusRules;
 
     public BonusCalculatorImpl(List<BonusRule> bonusRules) {
