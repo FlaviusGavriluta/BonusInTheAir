@@ -17,7 +17,7 @@ public class CompanyProfitCalculator {
         int j = 0;
         int i = brokers.size();
         double totalProfit = 0;
-        double baseSalaries = 0;g
+        double baseSalaries = 0;
         double remaningProfit = 0;
         while (i > 0) {
             Broker b = brokers.get(brokers.size() - i);
