@@ -6,7 +6,7 @@ import com.codecool.bonusintheair.data.CompanyProfit;
 
 import java.util.List;
 
-public class CompanyProfitCalculator {
+public class CompanyProfitCalculator implements ProfitCalculator {
     private final List<BonusRule> bonusRules;
 
     public CompanyProfitCalculator(List<BonusRule> bonusRules) {

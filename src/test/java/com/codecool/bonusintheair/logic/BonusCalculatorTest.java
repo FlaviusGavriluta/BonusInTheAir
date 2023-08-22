@@ -10,11 +10,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BonusCalculatorTest {
-    private BonusCalculator bonusCalculator;
+    private BonusCalculatorImpl bonusCalculator;
 
     @BeforeEach
     void setup() {
-        bonusCalculator = new BonusCalculator(List.of(
+        bonusCalculator = new BonusCalculatorImpl(List.of(
                 new BonusRule(5000, 0.1),
                 new BonusRule(10000, 0.15),
                 new BonusRule(15000, 0.2),
